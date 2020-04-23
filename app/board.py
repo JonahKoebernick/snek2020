@@ -4,6 +4,7 @@ UNOCCUPIED = 1
 OCCUPIED   = -1
 FOOD       = 1
 HEAD       = -2
+TAIL       = 4
 
 
 

@@ -39,8 +39,6 @@ def move():
     direction = calculate_move(new_board, game_state)
     total_time = time.time() - start_time
     print('TOTAL TIME FOR MOVE: ' + str(total_time))
-
-
     return move_response(direction)
 
 

@@ -9,16 +9,17 @@ OCCUPIED   = -1
 FOOD       = 1
 HEAD       = -2
 HUNT       = 1
-
-
 TAIL       = 4
-HEALTHLIM = 100
+HEALTHLIM = 25
 game_state = ""
 directions = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
 
 
 def calculate_move(new_board, game_state):
-    find_food(game_state, new_board)
+    if(game_state['you']['health'] < HEALTHLIM):
+        find_food(game_state, new_board)
+    else:
+        find_largest(game_state, new_board)
     print(max(directions, key=lambda k: directions[k]))
     print("UP", directions["up"])
     print("DOWN", directions["down"])
@@ -43,6 +44,21 @@ def find_food(game_state, board_matrix ):
             minsum = tot
 
     find_path(game_state, board_matrix,x,y, goodfood["x"], goodfood['y'])
+
+def find_largest(game_state, board_matrix):
+    largest_x = 0
+    largest_y = 0
+    y = game_state['you']["body"][0]["y"]
+    x = game_state['you']["body"][0]["x"]
+    largest_snake = 0
+    for snake in game_state['snakes']:
+        length = len(snake['body'])
+        if(length>largest_snake):
+            largest_snake = len(snake['body'])
+            largest_x = snake['body'][(0+largest_snake)]['x']
+            largest_y = snake['body'][(0+largest_snake)]['y']
+
+    find_path(game_state, board_matrix, x, y, largest_x, largest_y)
 
 
 def find_path(game_state, board_matrix, x, y, foodx, foody):

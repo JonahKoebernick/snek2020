@@ -51,7 +51,7 @@ def find_largest(game_state, board_matrix):
     y = game_state['you']["body"][0]["y"]
     x = game_state['you']["body"][0]["x"]
     largest_snake = 0
-    for snake in game_state['snakes']:
+    for snake in game_state['board']['snakes']:
         length = len(snake['body'])
         if(length>largest_snake):
             largest_snake = len(snake['body'])

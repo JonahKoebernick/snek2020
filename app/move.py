@@ -20,7 +20,7 @@ def calculate_move(new_board, game_state):
     directions["down"] = 0
     directions["left"] = 0
     directions["right"] = 0
-    
+
     if(game_state['you']['health'] < HEALTHLIM):
         find_food(game_state, new_board)
     else:
@@ -52,10 +52,11 @@ def find_largest(game_state, board_matrix):
     largest_y = 0
     y = game_state['you']["body"][0]["y"]
     x = game_state['you']["body"][0]["x"]
+    id = game_state['you']["id"]
     largest_snake = 0
     for snake in game_state['board']['snakes']:
         length = len(snake['body'])
-        if(length>largest_snake):
+        if(length>largest_snake) and not(snake['id'] == id):
             largest_snake = len(snake['body'])
             largest_x = snake['body'][(largest_snake-1)]['x']
             largest_y = snake['body'][(largest_snake-1)]['y']

@@ -40,8 +40,4 @@ def update_board(state):
     if tail['x']== oneback['x'] and tail['y'] == oneback['y']:
         Matrix[tail['y']][tail['x']] = OCCUPIED
 
-
-    # print('Updated board state for turn ' + str(state['turn']) + ':\n\n' + str(board) + '\n\n')
-   # for x in range(len(Matrix)):
-   # print(Matrix[x])
     return Matrix

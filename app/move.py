@@ -8,13 +8,15 @@ UNOCCUPIED = 1
 OCCUPIED   = -1
 FOOD       = 1
 HEAD       = -2
-HUNT      = 1
+HUNT       = 1
 
 
 TAIL       = 4
 HEALTHLIM = 100
 game_state = ""
 directions = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
+
+
 def calculate_move(new_board, game_state):
     find_food(game_state, new_board)
     print(max(directions, key=lambda k: directions[k]))

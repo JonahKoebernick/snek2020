@@ -16,6 +16,11 @@ directions = {'up': 0, 'down': 0, 'left': 0, 'right': 0}
 
 
 def calculate_move(new_board, game_state):
+    directions["up"] = 0
+    directions["down"] = 0
+    directions["left"] = 0
+    directions["right"] = 0
+    
     if(game_state['you']['health'] < HEALTHLIM):
         find_food(game_state, new_board)
     else:
@@ -31,10 +36,7 @@ def find_food(game_state, board_matrix ):
     minsum = 1000
     y = game_state['you']["body"][0]["y"]
     x = game_state['you']["body"][0]["x"]
-    directions["up"] = 0
-    directions["down"] = 0
-    directions["left"] = 0
-    directions["right"] = 0
+
 
     for food in game_state["board"]["food"]:
         tot = abs(food['x'] - x)

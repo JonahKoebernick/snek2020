@@ -55,8 +55,8 @@ def find_largest(game_state, board_matrix):
         length = len(snake['body'])
         if(length>largest_snake):
             largest_snake = len(snake['body'])
-            largest_x = snake['body'][(0+largest_snake)]['x']
-            largest_y = snake['body'][(0+largest_snake)]['y']
+            largest_x = snake['body'][(largest_snake-1)]['x']
+            largest_y = snake['body'][(largest_snake-1)]['y']
 
     find_path(game_state, board_matrix, x, y, largest_x, largest_y)
 

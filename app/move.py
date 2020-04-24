@@ -71,11 +71,12 @@ def find_path(game_state, board_matrix, x, y, foodx, foody):
     end = grid.node(foodx, foody)
     finder = AStarFinder(diagonal_movement=DiagonalMovement.never)
     path, runs = finder.find_path(start, end, grid)
+    print(path)
 
     if (len(path) > 0):
         pathx = path[1][0]
         pathy = path[1][1]
-        print(path)
+
 
         y = game_state['you']["body"][0]["y"]
         x = game_state['you']["body"][0]["x"]

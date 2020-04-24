@@ -7,7 +7,7 @@ from pathfinding.finder.a_star import AStarFinder
 UNOCCUPIED = 1
 OCCUPIED   = -1
 FOOD       = 1
-HEAD       = -2
+HEAD       = -1
 HUNT       = 1
 TAIL       = 4
 HEALTHLIM = 25
@@ -75,6 +75,7 @@ def find_path(game_state, board_matrix, x, y, foodx, foody):
     if (len(path) > 0):
         pathx = path[1][0]
         pathy = path[1][1]
+        print(path)
 
         y = game_state['you']["body"][0]["y"]
         x = game_state['you']["body"][0]["x"]
